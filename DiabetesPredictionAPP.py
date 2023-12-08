@@ -4,11 +4,8 @@ import streamlit as st
 import os
 
 # loading the saved model
-model_dir = os.path.join(os.path.dirname(__file__), 'models')
-model_path  = os.path.join(model_dir, 'model.sav')
-
-with open(model_path, 'rb') as file:
-  loaded_model = pickle.load(open('model.sav', 'rb'))
+model_dir = os.path.join(os.path.dirname(__file__), 'models', 'model.sav')
+loaded_model  = pickle.load(open(model_dir, 'rb'))
 
 def diabetes_prediction(input_data):
     
