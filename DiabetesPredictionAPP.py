@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 import streamlit as st
 import os
+import sklearn
 
 # loading the saved model
 model_dir = os.path.join(os.path.dirname(__file__), 'models', 'model.sav')
