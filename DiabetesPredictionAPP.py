@@ -5,11 +5,12 @@ import os
 import sklearn
 
 # loading the saved model
-model_dir = os.path.join(os.path.dirname(__file__), 'models', 'model.sav')
-
-# Load the model
-with open(model_dir, 'rb') as file:
-    loaded_model = pickle.load(file)
+def load_model():
+    with open('model.sav', 'rb') as file:
+      loaded_model = pickle.load(file)
+    return loaded_model
+  
+predict_model = load_model()
 
 def diabetes_prediction(input_data):
     
@@ -19,7 +20,7 @@ def diabetes_prediction(input_data):
     # reshape the array as we are predicting for one instance
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
 
-    prediction = loaded_model.predict(input_data_reshaped)
+    prediction = predict_model.predict(input_data_reshaped)
     print(prediction)
 
     if (prediction[0] == 0):
