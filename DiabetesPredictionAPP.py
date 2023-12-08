@@ -5,7 +5,10 @@ import os
 
 # loading the saved model
 model_dir = os.path.join(os.path.dirname(__file__), 'models', 'model.sav')
-loaded_model  = pickle.load(open(model_dir, 'rb'))
+
+# Load the model
+with open(model_dir, 'rb') as file:
+    loaded_model = pickle.load(file)
 
 def diabetes_prediction(input_data):
     
